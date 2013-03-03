@@ -1,0 +1,5 @@
+**/target
+pkg
+lib/**/*.jar
+.DS_STORE
+**/.DS_STORE
