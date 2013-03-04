@@ -49,63 +49,58 @@
      <!-- project dependencies -->
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-b3_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-zipkin</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-core_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-core</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-exception_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-exception</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-ostrich4_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-ostrich4</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-thrift_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-thrift</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>finagle-http_2.9.1</artifactId>
-       <version>4.0.2</version>
+       <artifactId>finagle-http</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>util-collection_2.9.1</artifactId>
-       <version>4.0.1</version>
+       <artifactId>util-collection</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>util-core_2.9.1</artifactId>
-       <version>4.0.1</version>
+       <artifactId>util-core</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>util-eval_2.9.1</artifactId>
-       <version>4.0.1</version>
+       <artifactId>util-eval</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>util-logging_2.9.1</artifactId>
-       <version>4.0.1</version>
+       <artifactId>util-logging</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>com.twitter</groupId>
-       <artifactId>util-thrift_2.9.1</artifactId>
-       <version>4.0.1</version>
-     </dependency>
-     <dependency>
-       <groupId>com.twitter</groupId>
-       <artifactId>ostrich</artifactId>
-       <version>8.2.7</version>
+       <artifactId>util-thrift</artifactId>
+       <version>6.1.0</version>
      </dependency>
      <dependency>
        <groupId>org.jruby</groupId>

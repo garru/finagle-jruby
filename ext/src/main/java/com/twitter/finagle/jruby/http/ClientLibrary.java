@@ -1,9 +1,12 @@
 package com.twitter.finagle.jruby.http;
 
-import com.twitter.finagle.Service;
+import com.twitter.finagle.builder.ClientBuilder;
 import com.twitter.finagle.http.Http;
+import com.twitter.finagle.Service;
+import com.twitter.util.Duration;
 import java.io.IOException;
 import java.lang.StringBuffer;
+import java.util.concurrent.TimeUnit;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.handler.codec.http.*;
 import org.jruby.*;
@@ -14,7 +17,7 @@ import org.jruby.runtime.builtin.IRubyObject;
 import org.jruby.runtime.load.Library;
 import org.jruby.runtime.ObjectAllocator;
 import org.jruby.runtime.ThreadContext;
-import com.twitter.finagle.builder.ClientBuilder;
+
 
 public class ClientLibrary implements Library {
   public static RubyClass httpClient;
@@ -121,10 +124,12 @@ public class ClientLibrary implements Library {
         connectionLimit = new Long(1);
       }
 
-      this.underlying = ClientBuilder.safeBuild(ClientBuilder.get()
-        .codec(Http.get())
-        .hosts(host)
-        .hostConnectionLimit(connectionLimit.intValue()));
+      this.underlying = ClientBuilder.safeBuild(
+        ClientBuilder.get()
+                     .codec(Http.get())
+                     .hosts(host)
+                     .hostConnectionLimit(connectionLimit.intValue())
+                     .tcpConnectTimeout(Duration.apply(1, TimeUnit.SECONDS)));
       return getRuntime().getNil();
     }
 

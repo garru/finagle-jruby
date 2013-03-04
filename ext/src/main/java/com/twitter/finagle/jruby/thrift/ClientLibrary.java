@@ -1,9 +1,14 @@
 package com.twitter.finagle.jruby.thrift;
 
+import com.twitter.finagle.builder.ClientBuilder;
+import com.twitter.finagle.jruby.http.Util;
+import com.twitter.finagle.jruby.RubyFutureLibrary.*;
+import com.twitter.finagle.jruby.StatsReceiverLibrary.*;
 import com.twitter.finagle.Service;
-import com.twitter.finagle.thrift.ThriftClientRequest;
-import com.twitter.finagle.thrift.ThriftClientFramedCodec;
 import com.twitter.finagle.thrift.ClientId;
+import com.twitter.finagle.thrift.ThriftClientFramedCodec;
+import com.twitter.finagle.thrift.ThriftClientRequest;
+import com.twitter.util.Future;
 import java.io.IOException;
 import java.lang.StringBuffer;
 import org.jboss.netty.buffer.ChannelBuffer;
@@ -16,12 +21,7 @@ import org.jruby.runtime.builtin.IRubyObject;
 import org.jruby.runtime.load.Library;
 import org.jruby.runtime.ObjectAllocator;
 import org.jruby.runtime.ThreadContext;
-import com.twitter.finagle.builder.ClientBuilder;
-import com.twitter.finagle.jruby.RubyFutureLibrary.*;
-import com.twitter.util.Future;
-import com.twitter.finagle.jruby.http.Util;
 import scala.Some;
-import com.twitter.finagle.jruby.StatsReceiverLibrary.*;
 
 public class ClientLibrary implements Library {
   public static RubyClass thriftClient;
