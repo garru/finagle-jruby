@@ -30,7 +30,7 @@
  * the provisions above, a recipient may use your version of this file under
  * the terms of any one of the CPL, the GPL or the LGPL.
  ***** END LICENSE BLOCK *****/
-package com.twitter.finagle.test;
+package com.twitter.finagle.jruby.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

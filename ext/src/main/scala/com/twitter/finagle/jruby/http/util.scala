@@ -1,8 +1,8 @@
 package com.twitter.finagle.jruby.http
 
-import com.twitter.finagle.rack.IOLibrary._
-import com.twitter.finagle.http.ClientLibrary._
-import com.twitter.finagle.RubyFutureLibrary._
+import com.twitter.finagle.jruby.rack.IOLibrary._
+import com.twitter.finagle.jruby.http.ClientLibrary._
+import com.twitter.finagle.jruby.RubyFutureLibrary._
 import com.twitter.util.Future
 import org.jboss.netty.handler.codec.http._
 import org.jboss.netty.buffer.{ChannelBuffer, ChannelBuffers}

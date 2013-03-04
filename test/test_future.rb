@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'finagle-jruby'
+require 'finagle'
 
 class TestFuture < Test::Unit::TestCase
   def test_value

@@ -1,7 +1,7 @@
 package com.twitter.finagle.jruby.rack;
 
-import com.twitter.finagle.http.HttpServerBuilder;
-import com.twitter.finagle.http.RackProcessor;
+import com.twitter.finagle.jruby.http.HttpServerBuilder;
+import com.twitter.finagle.jruby.http.RackProcessor;
 import com.twitter.finagle.Service;
 import com.twitter.finagle.stats.OstrichStatsReceiver;
 import com.twitter.util.Future;
@@ -14,9 +14,9 @@ import org.jruby.runtime.builtin.IRubyObject;
 import org.jruby.runtime.load.Library;
 import org.jruby.runtime.ObjectAllocator;
 import org.jruby.runtime.ThreadContext;
-import com.twitter.finagle.StatsReceiverLibrary.*;
-import com.twitter.finagle.AdminServiceFactory;
-import com.twitter.finagle.WrappedOstrichStatsReceiver;
+import com.twitter.finagle.jruby.StatsReceiverLibrary.*;
+import com.twitter.finagle.jruby.AdminServiceFactory;
+import com.twitter.finagle.jruby.WrappedOstrichStatsReceiver;
 
 public class HandlerLibrary implements Library {
   public static RubyClass rackHandler;

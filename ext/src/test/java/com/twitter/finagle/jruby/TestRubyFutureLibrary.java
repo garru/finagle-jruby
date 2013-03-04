@@ -1,10 +1,10 @@
-package com.twitter.finagle.test;
+package com.twitter.finagle.jruby.test;
 
-import com.twitter.finagle.RubyFutureLibrary;
+import com.twitter.finagle.jruby.RubyFutureLibrary;
 import java.lang.Exception;
 import org.jruby.*;
 import org.junit.*;
-import static com.twitter.finagle.RubyFutureLibrary.*;
+import static com.twitter.finagle.jruby.RubyFutureLibrary.*;
 import static junit.framework.Assert.*;
 import org.jruby.exceptions.RaiseException;
 

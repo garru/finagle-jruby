@@ -1,7 +1,7 @@
-package com.twitter.finagle.test;
+package com.twitter.finagle.jruby.test;
 
-import com.twitter.finagle.rack.IOLibrary;
-import com.twitter.finagle.RubyFutureLibrary;
+import com.twitter.finagle.jruby.rack.IOLibrary;
+import com.twitter.finagle.jruby.RubyFutureLibrary;
 import java.lang.Exception;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -9,7 +9,7 @@ import org.jboss.netty.util.CharsetUtil;
 import org.jruby.*;
 import org.jruby.runtime.builtin.IRubyObject;
 import org.junit.*;
-import static com.twitter.finagle.rack.IOLibrary.*;
+import static com.twitter.finagle.jruby.rack.IOLibrary.*;
 import static junit.framework.Assert.*;
 
 public class TestRackIOLibrary {

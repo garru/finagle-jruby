@@ -1,6 +1,6 @@
 package com.twitter.finagle.jruby.http
 
-import com.twitter.finagle.RubyFutureLibrary.RubyFuture
+import com.twitter.finagle.jruby.RubyFutureLibrary.RubyFuture
 import com.twitter.util.FuturePool
 import org.jboss.netty.handler.codec.http._
 import org.jruby.RubyArray
