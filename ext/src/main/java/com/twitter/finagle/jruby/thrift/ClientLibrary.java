@@ -138,7 +138,7 @@ public class ClientLibrary implements Library {
       this.underlying = ClientBuilder.safeBuild(ClientBuilder.get()
         .codec(ThriftClientFramedCodec.apply(new Some<ClientId>(new ClientId(clientId))))
         .hosts(host)
-        .reportTo(((StatsReceiver) statsReceiver).getUnderlying().getUnderlying())
+        .reportTo(((RubyStatsReceiver) statsReceiver).toJava())
         .hostConnectionLimit(connectionLimit.intValue()));
       return getRuntime().getNil();
     }

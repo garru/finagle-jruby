@@ -68,10 +68,10 @@ public class HandlerLibrary implements Library {
         adminPort = new Long(9000);
       }
 
-      StatsReceiver stats = (StatsReceiver) serverOptions.get(RubySymbol.newSymbol(context.getRuntime(), "stats"));
+      RubyStatsReceiver stats = (RubyStatsReceiver) serverOptions.get(RubySymbol.newSymbol(context.getRuntime(), "stats"));
 
       if (stats == null) {
-        stats = new StatsReceiver(context.getRuntime());
+        stats = new RubyStatsReceiver(context.getRuntime());
       }
 
       AdminServiceFactory adminFactory = new AdminServiceFactory(adminPort.intValue());
