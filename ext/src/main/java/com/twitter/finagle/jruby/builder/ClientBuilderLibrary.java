@@ -117,6 +117,92 @@ public class ClientBuilderLibrary implements Library {
       return copy(this.underlying.reportTo(stats.toJava()));
     }
 
+    @JRubyMethod(name = "report_host_stats", required = 1)
+    public IRubyObject reportHostStats(final ThreadContext context, IRubyObject statsReceiver) {
+      RubyStatsReceiver stats = (RubyStatsReceiver) statsReceiver;
+      return copy(this.underlying.reportHostStats(stats.toJava()));
+    }
+
+    @JRubyMethod(name = "name", required = 1)
+    public IRubyObject name(final ThreadContext context, IRubyObject name) {
+      RubyString clientName = (RubyString) name;
+      return copy(this.underlying.name(clientName.toString()));
+    }
+
+    @JRubyMethod(name = "host_connection_limit", required = 1)
+    public IRubyObject hostConnectionLimit(final ThreadContext context, IRubyObject hostConnectionLimit) {
+      Long connectionLimit = (Long) hostConnectionLimit.toJava(Long.class);
+      return copy(this.underlying.hostConnectionLimit(connectionLimit.intValue()));
+    }
+
+    @JRubyMethod(name = "host_connection_coresize", required = 1)
+    public IRubyObject hostConnectionCoresize(final ThreadContext context, IRubyObject hostConnectionCoresize) {
+      Long coresize = (Long) hostConnectionCoresize.toJava(Long.class);
+      return copy(this.underlying.hostConnectionCoresize(coresize.intValue()));
+    }
+
+    @JRubyMethod(name = "host_connection_idle_time", required = 1)
+    public IRubyObject hostConnectionIdleTime(final ThreadContext context, IRubyObject idleTime) {
+      Long hostConnectionIdleTime = (Long) idleTime.toJava(Long.class);
+      return copy(this.underlying.hostConnectionIdleTime(Duration.apply(hostConnectionIdleTime, TimeUnit.MILLISECONDS)));
+    }
+
+    @JRubyMethod(name = "host_connection_max_waiters", required = 1)
+    public IRubyObject hostConnectionMaxWaiters(final ThreadContext context, IRubyObject maxWaiters) {
+      Long hostConnectionMaxWaiters = (Long) maxWaiters.toJava(Long.class);
+      return copy(this.underlying.hostConnectionMaxWaiters(hostConnectionMaxWaiters.intValue()));
+    }
+
+    @JRubyMethod(name = "host_connection_max_idle_time", required = 1)
+    public IRubyObject hostConnectionMaxIdleTime(final ThreadContext context, IRubyObject idleTime) {
+      Long hostConnectionMaxIdleTime = (Long) idleTime.toJava(Long.class);
+      return copy(this.underlying.hostConnectionMaxIdleTime(Duration.apply(hostConnectionMaxIdleTime, TimeUnit.MILLISECONDS)));
+    }
+
+    @JRubyMethod(name = "host_connection_max_life_time", required = 1)
+    public IRubyObject hostConnectionMaxLifeTime(final ThreadContext context, IRubyObject lifeTime) {
+      Long hostConnectionMaxLifeTime = (Long) lifeTime.toJava(Long.class);
+      return copy(this.underlying.hostConnectionMaxLifeTime(Duration.apply(hostConnectionMaxLifeTime, TimeUnit.MILLISECONDS)));
+    }
+
+    @JRubyMethod(name = "retries", required = 1)
+    public IRubyObject retries(final ThreadContext context, IRubyObject retries) {
+      Long numRetries = (Long) retries.toJava(Long.class);
+      return copy(this.underlying.retries(numRetries.intValue()));
+    }
+
+    // @JRubyMethod(name = "retryPolicy", required = 1)
+    // public IRubyObject name(final ThreadContext context, IRubyObject retryPolicy) {
+    //   RubyRetryPolicy retryPolicy = (RubyRetryPolicy) retryPolicy;
+    //   return copy(this.underlying.retryPolicy(retryPolicy.getUnderlying()));
+    // }
+
+    @JRubyMethod(name = "send_buffer_size", required = 1)
+    public IRubyObject sendBufferSize(final ThreadContext context, IRubyObject bufferSize) {
+      Long sendBufferSize = (Long) bufferSize.toJava(Long.class);
+      return copy(this.underlying.sendBufferSize(sendBufferSize.intValue()));
+    }
+
+    @JRubyMethod(name = "recv_buffer_size", required = 1)
+    public IRubyObject recvBufferSize(final ThreadContext context, IRubyObject bufferSize) {
+      Long recvBufferSize = (Long) bufferSize.toJava(Long.class);
+      return copy(this.underlying.recvBufferSize(recvBufferSize.intValue()));
+    }
+
+    @JRubyMethod(name = "tls", required = 1)
+    public IRubyObject tls(final ThreadContext context, IRubyObject hostname) {
+      RubyString name = (RubyString) hostname;
+      return copy(this.underlying.tls(name.toString()));
+    }
+
+    // @JRubyMethod(name = "tls_context", required = 1)
+    // public IRubyObject name(final ThreadContext context, IRubyObject sslContext) {
+    //   RubySSLContext context = (RubySSLContext) sslContext;
+    //   return copy(this.underlying.tls(context.toJava()));
+    // }
+
+    //TODO: everything after tls_context
+
     // returns client
     @JRubyMethod(name = "build")
     public IRubyObject build(final ThreadContext context) {
