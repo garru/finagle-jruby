@@ -1,4 +1,4 @@
-package com.twitter.finagle.jruby.rack;
+package com.twitter.finagle.jruby.io;
 
 import java.io.IOException;
 import java.lang.StringBuffer;
@@ -17,8 +17,7 @@ public class IOLibrary implements Library {
 
   public void load(Ruby runtime, boolean wrap) throws IOException {
     RubyModule finagle = runtime.getOrCreateModule("Finagle");
-    RubyModule rack = finagle.defineOrGetModuleUnder("Rack");
-    load(runtime, rack, wrap);
+    load(runtime, finagle, wrap);
   }
 
   public void load(Ruby runtime, RubyModule module, boolean wrap) {
@@ -27,32 +26,32 @@ public class IOLibrary implements Library {
       runtime.getObject(),
       FUTURE_ALLOCATOR
     );
-    rackIO.defineAnnotatedMethods(RackIO.class);
+    rackIO.defineAnnotatedMethods(FinagleRubyIO.class);
   }
 
   private final static ObjectAllocator FUTURE_ALLOCATOR = new ObjectAllocator() {
     public IRubyObject allocate(Ruby runtime, RubyClass klass) {
-      return new RackIO(runtime, klass);
+      return new FinagleRubyIO(runtime, klass);
     }
   };
 
-  @JRubyClass(name = "Finagle::Rack::IO")
-  public static class RackIO extends RubyObject {
+  @JRubyClass(name = "Finagle::IO")
+  public static class FinagleRubyIO extends RubyObject {
     private static char lineBreak = '\n';
 
     private ChannelBuffer underlying;
 
-    public RackIO(Ruby runtime, RubyClass metaClass, ChannelBuffer underlying) {
+    public FinagleRubyIO(Ruby runtime, RubyClass metaClass, ChannelBuffer underlying) {
       super(runtime, metaClass);
       this.underlying = underlying;
     }
 
-    public RackIO(Ruby runtime, RubyClass metaClass) {
+    public FinagleRubyIO(Ruby runtime, RubyClass metaClass) {
       super(runtime, metaClass);
       this.underlying = null;
     }
 
-    public RackIO(Ruby runtime, ChannelBuffer underlying) {
+    public FinagleRubyIO(Ruby runtime, ChannelBuffer underlying) {
       super(runtime, IOLibrary.rackIO);
       this.underlying = underlying;
     }

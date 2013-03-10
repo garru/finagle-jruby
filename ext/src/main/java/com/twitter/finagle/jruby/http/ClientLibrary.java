@@ -93,6 +93,44 @@ public class ClientLibrary implements Library {
     }
   }
 
+  @JRubyClass(name = "Finagle::Http:Response")
+  public static class RubyResponse extends RubyObject {
+    private IRubyObject headers;
+    private IRubyObject error_code;
+    private IRubyObject body;
+
+    public RubyResponse(Ruby runtime, RubyClass metaClass) {
+      super(runtime, metaClass);
+    }
+
+    @JRubyMethod(name = "initialize", required = 4)
+    public IRubyObject initialize(final ThreadContext context, IRubyObject[] args) {
+      // this.uri = args[0];
+      // this.headers = args[1];
+      // this.content = args[2];
+      // this.httpMethod = args[3];
+      return getRuntime().getNil();
+    }
+
+    public IRubyObject getUri() {
+      return this.uri;
+    }
+
+    public IRubyObject getContent() {
+      return this.content;
+    }
+
+    public IRubyObject getHeaders() {
+      return this.headers;
+    }
+
+    public IRubyObject getHttpMethod() {
+      return this.httpMethod;
+    }
+  }
+
+  public static class RubyFilter extends Filter<HttpRequest, HttpResponse, RubyRequest, Rubysponse
+
   @JRubyClass(name = "Finagle::Http::Client")
   public static class HttpClient extends RubyObject {
     private Service<HttpRequest, HttpResponse> underlying;
@@ -139,6 +177,14 @@ public class ClientLibrary implements Library {
       return Util.httpResponseToRubyHttpResponse(getRuntime(),
         underlying.apply(Util.rubyHttpRequestToNettyHttpRequest(rubyRequest))
       );
+    }
+
+    @JRubyMethod(name = "build", meta = true, required = 1)
+    public static IRubyObject buildClient(final ThreadContext context, IRubyObject recv, final IRubyObject clientBuilder) {
+      ClientBuilder builder = (RubyClientBuilder) clientBuilder.getUnderlying()
+
+      ClientBuilder.safeBuild(builder.codec(Http.get()))
+
     }
   }
 }
